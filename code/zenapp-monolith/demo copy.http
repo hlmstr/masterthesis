@@ -1,0 +1,36 @@
+### EXPERIMENT 1
+GET http://localhost/service?serviceID=1 HTTP/1.1
+Content-Type: application/json
+
+### 
+GET http://localhost/subscription?userID=1 HTTP/1.1
+Content-Type: application/json
+
+### 
+GET http://localhost/position?userID=1 HTTP/1.1
+Content-Type: application/json
+
+### EXPERIMENT 2
+GET http://localhost/users?limit=1 HTTP/1.1
+Content-Type: application/json
+
+### EXPERIMENT 3
+GET http://localhost/users?limit=1000 HTTP/1.1
+Content-Type: application/json
+
+
+### TEST FUNC
+POST http://localhost/checksubscriptions HTTP/1.1
+Content-Type: application/json
+
+{
+     "position":{
+        "lat": 58.391620,
+        "long": 15.549027    
+    },
+    "subscription": [
+        {"serviceID": 1, "settings":{"distance": 10, "queuetime": 15}},
+        {"serviceID": 2, "settings":{"distance": 10, "queuetime": 5}},
+        {"serviceID": 4, "settings":{"distance": 10, "queuetime": 5}}
+    ]
+}

@@ -1,0 +1,48 @@
+POST http://localhost/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": {
+        "firstname": "bilman", 
+        "lastname": "bil"
+    },
+    "id": 501,
+    "email": "b",
+    "password": "b",
+    "position":{
+        "lat": 58.391620,
+        "long": 15.549027    
+    }
+}
+###
+GET http://localhost:3000/users?userID=501 HTTP/1.1
+Content-Type: application/json
+
+### 
+
+POST http://localhost/subscriptions HTTP/1.1
+Content-Type: application/json
+
+{
+    "userID" : 501,
+    "serviceID":2
+
+}
+
+###
+GET http://localhost:3000/subscriptions?userID=501 HTTP/1.1
+
+
+###
+POST http://localhost/services HTTP/1.1
+Content-Type: application/json
+
+{
+     "position":{
+        "lat": 58.391620,
+        "long": 15.549027    
+    },
+    "subscription": [
+        {"id": 1, "settings":{"distance": 10, "queuetime": 5}}
+    ]
+}

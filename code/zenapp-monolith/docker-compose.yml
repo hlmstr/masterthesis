@@ -1,0 +1,19 @@
+version: '2.1'
+services:
+  geo-api-monolith:
+    container_name: monolith
+    image: geo-api-monolith
+    build: ./app
+    volumes:
+      - ./app:/src/app
+    environment:
+      WAIT_HOSTS: mongo:27017
+    ports:
+      - 80:80
+
+  mongo:
+    container_name: mongo
+    build: ./app/db
+    ports: 
+      - 27017:27017
+    

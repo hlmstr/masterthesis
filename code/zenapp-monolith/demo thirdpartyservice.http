@@ -1,0 +1,63 @@
+
+###
+GET http://localhost/services HTTP/1.1
+
+###
+GET http://localhost/service?serviceID=1 HTTP/1.1
+
+###
+POST http://localhost/services HTTP/1.1
+Content-Type: application/json
+
+{
+    "serviceIDs" : [1,2,3]
+}
+
+
+###
+POST http://localhost/service HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "service": {
+        "serviceID": 622,
+        "serviceName": "this the newest service",
+        "serviceURL": "https://mockservice601",
+        "serviceType": "carwash",
+        "description": "The new sservice object 1",
+        "posistion": {
+            "lat": 58.391620,
+            "long": 15.549027
+        },
+        "active": 1,
+        "settings": ["queuetime","distance"]
+    }
+}
+###
+PUT http://localhost/service HTTP/1.1
+Content-Type: application/json
+
+{
+    "serviceID":1,
+    "active":1
+}
+
+###
+POST http://localhost/checksubscriptions HTTP/1.1
+Content-Type: application/json
+
+
+{
+     "position":{
+        "lat": 58.391620,
+        "long": 15.549027    
+    },
+    "subscription": [
+        {"serviceID": 1, "settings":{"distance": 10, "queuetime": 15}},
+        {"serviceID": 1, "settings":{"distance": 10, "queuetime": 9}},
+        {"serviceID": 2, "settings":{"distance": 10, "queuetime": 5}},
+        {"serviceID": 4, "settings":{"distance": 10, "queuetime": 5}}
+    ]
+}
+
+

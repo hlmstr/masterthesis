@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  monolith:
+    container_name: monolith
+    image: jesho280/zenapp-mono
+    environment:
+      WAIT_HOSTS: mongo:27017
+    ports:
+      - 80:80
+
+  mongo:
+    container_name: mongo
+    image: jesho280/zenapp-mono-db
+    ports: 
+      - 27017:27017
