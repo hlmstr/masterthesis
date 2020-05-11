@@ -1,4 +1,6 @@
 # Distributed Queries - An Evaluation of the Microservice Architecture Master Thesis 2020
+* This repository contains the raw data, excel documents as well as scripts for data calculations.
+* This repo also contains the source code for the two prototypes of ZenApp
 
 
 
